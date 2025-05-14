@@ -1,11 +1,11 @@
-#importando bibliotecas
+# importando bibliotecas
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 
 
-#lendo o arquivo csv
-df_car_data = pd.read_csv('../vehicles.csv')
+# lendo o arquivo csv
+df_car_data = pd.read_csv('vehicles.csv')
 
 st.header('Vehiculos')
 
@@ -27,4 +27,3 @@ if scatter_button:
     scatter_df_car_data = px.scatter(df_car_data, x="odometer", y="price")
 
     st.plotly_chart(scatter_df_car_data, use_container_width=True)
-    
