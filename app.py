@@ -23,8 +23,9 @@ def create_hist(data):
     cria um histograma de quilometragem, com titulo e nomeando o eixo x.
     """
     return px.histogram(
-        data, x="odometer", title='Distribuição de KM',
-        labels={"odometer": "Quilometragem (KM)"}
+        data, x="odometer",
+        title='Distribuição de Quilometragem',
+        labels={"odometer": "Quilometragem (km)"}
     )
 
 
@@ -36,8 +37,8 @@ def create_scatter(data):
     """
     return px.scatter(
         data, x="odometer", y="price",
-        title='Relação entre KM e Preço',
-        labels={"odometer": "Quilometragem (KM)", "price": "Preço (USD)"}
+        title='Relação entre Quilometragem e Preço',
+        labels={"odometer": "Quilometragem (km)", "price": "Preço (USD)"}
     )
 
 
@@ -51,11 +52,9 @@ choose_graph = st.selectbox('Selecione um tipo de gráfico:', [
 
 
 if choose_graph == 'Histograma':
-    st.write('Visualizando o **Histograma de KM:**')
     hist = create_hist(vehicles_data)
     st.plotly_chart(hist, use_container_width=True)
 
 elif choose_graph == 'Gráfico de Dispersão':
-    st.write('Visualizando o **Gráfico de Dispersão (Preço vs KM):**')
     scatter = create_scatter(vehicles_data)
     st.plotly_chart(scatter, use_container_width=True)
